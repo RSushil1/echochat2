@@ -13,7 +13,12 @@ const SocketProvider = ({children}) => {
   const id = auth?.user?._id
 
     useEffect(()=>{
-        const newSocket = io('https://echochatserver.vercel.app',{query:{id}})
+        const newSocket = io('https://echochatserver.vercel.app',{query:{id},
+        withCredentials: true,
+        extraHeaders: {
+          "my-custom-header": "abcd"
+        }
+      })
         setSocket(newSocket)
         return ()=>newSocket.close()
     },[id])
