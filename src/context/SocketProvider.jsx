@@ -17,7 +17,7 @@ const SocketProvider = ({ children }) => {
       query: { id },
       withCredentials: true,
       extraHeaders: {
-        "my-custom-header": "sushil"
+        "my-custom-header": "abcd"
       }
     })
     setSocket(newSocket)
