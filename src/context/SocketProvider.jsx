@@ -13,7 +13,7 @@ const SocketProvider = ({ children }) => {
   const id = auth?.user?._id
 
   useEffect(() => {
-    const newSocket = io('https://echochatserver.vercel.app/',
+    const newSocket = io('https://echochatserver.vercel.app',
       {
         query: { id },
         withCredentials: true,
@@ -22,7 +22,7 @@ const SocketProvider = ({ children }) => {
         }
       })
     setSocket(newSocket)
-    // return () => newSocket.close()
+    return () => newSocket.close()
   }, [id])
   return (
     <SocketContext.Provider value={socket}>
