@@ -18,7 +18,6 @@ const SocketProvider = ({children}) => {
         extraHeaders: {
           "my-custom-header": "abcd"
         },
-        transports: ['websocket'],
         secure: true,},
         {query:{id},
       })
