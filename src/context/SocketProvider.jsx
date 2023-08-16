@@ -13,7 +13,7 @@ const SocketProvider = ({children}) => {
   const id = auth?.user?._id
 
     useEffect(()=>{
-        const newSocket = io('http://localhost:8000',{query:{id}})
+        const newSocket = io('https://echochatserver.vercel.app',{query:{id}})
         setSocket(newSocket)
         return ()=>newSocket.close()
     },[id])
