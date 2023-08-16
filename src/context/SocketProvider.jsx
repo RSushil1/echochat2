@@ -19,7 +19,8 @@ const SocketProvider = ({ children }) => {
         withCredentials: true,
         extraHeaders: {
           "my-custom-header": "abcd"
-        }
+        },
+        transports:['websocket', 'polling']
       })
     setSocket(newSocket)
     return () => newSocket.close()
