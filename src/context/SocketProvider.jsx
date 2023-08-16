@@ -15,14 +15,11 @@ const SocketProvider = ({ children }) => {
   useEffect(() => {
     const newSocket = io('https://echochatserver.vercel.app/',
       {
+        query: { id },
         withCredentials: true,
         extraHeaders: {
           "my-custom-header": "abcd"
-        },
-        path: '/socket.io',
-        transports: ['polling'],
-        secure: true,
-        query: { id }
+        }
       })
     setSocket(newSocket)
     return () => newSocket.close()
