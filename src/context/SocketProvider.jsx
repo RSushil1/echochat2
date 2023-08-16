@@ -20,7 +20,7 @@ const SocketProvider = ({ children }) => {
           "my-custom-header": "abcd"
         },
         path: '/socket.io',
-        transports: ['websocket'],
+        transports: ['polling'],
         secure: true,
       },
       {
