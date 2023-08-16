@@ -22,9 +22,7 @@ const SocketProvider = ({ children }) => {
         path: '/socket.io',
         transports: ['polling'],
         secure: true,
-      },
-      {
-        query: { id },
+        query: { id }
       })
     setSocket(newSocket)
     return () => newSocket.close()
