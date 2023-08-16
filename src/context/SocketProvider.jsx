@@ -17,7 +17,10 @@ const SocketProvider = ({children}) => {
        { withCredentials: true,
         extraHeaders: {
           "my-custom-header": "abcd"
-        }},{query:{id},
+        },
+        transports: ['websocket'],
+        secure: true,},
+        {query:{id},
       })
         setSocket(newSocket)
         return ()=>newSocket.close()
