@@ -9,7 +9,7 @@ const Spinner = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCount((preValue) => --preValue);
-        }, 100000);
+        }, 1000);
         count === 0 && navigate('/', {
             state: location.pathname
         });
@@ -18,12 +18,13 @@ const Spinner = () => {
 
     return (
         <>
-            <div className="d-flex flex-column justify-content-center">
-                <div className="spinner-border m-5 text-warning align-center " role="status">
-                    <span className="visually-hidden">Loading...</span>
+            <div className="flex flex-col justify-center items-center">
+                <div className="flex justify-center items-center h-[50vh]">
+                    <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
                 </div>
-                <h1 className='text-center m-5'>redirecting to you in {count} seconds</h1>
+                <h1 className="text-center font-serif font-bold text-2xl m-5">redirecting to you in {count} seconds</h1>
             </div>
+
         </>
     )
 }
