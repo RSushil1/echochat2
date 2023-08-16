@@ -14,6 +14,7 @@ const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     const newSocket = io('https://echochatio.vercel.app', {
+      transports: ['websocket'],
       query: { id },
       withCredentials: true,
       extraHeaders: {
