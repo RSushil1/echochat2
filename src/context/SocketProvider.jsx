@@ -18,6 +18,7 @@ const SocketProvider = ({ children }) => {
       withCredentials: true,
       extraHeaders: {
         "Access-Control-Allow-Origin": "https://echochat.vercel.app",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
         "my-custom-header": "abcd"
       }
     })
