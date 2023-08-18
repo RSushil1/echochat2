@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import io from 'socket.io-client'
 import { UseAuth } from './Auth'
+
 const SocketContext = React.createContext()
 
 export function useSocket() {
@@ -16,20 +17,16 @@ const SocketProvider = ({ children }) => {
     const newSocket = io('https://echochatserver.vercel.app', {
       query: { id },
       withCredentials: true,
-      extraHeaders: {
-        "Access-Control-Allow-Origin": "https://echochat.vercel.app",
-        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
-        "my-custom-header": "abcd"
-      }
-    })
-    setSocket(newSocket)
-    return () => newSocket.close()
-  }, [id])
+    });
+    setSocket(newSocket);
+    return () => newSocket.close();
+  }, [id]);
+
   return (
     <SocketContext.Provider value={socket}>
       {children}
     </SocketContext.Provider>
-  )
+  );
 }
 
-export default SocketProvider
+export default SocketProvider;
