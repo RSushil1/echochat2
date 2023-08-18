@@ -19,7 +19,11 @@ const SocketProvider = ({ children }) => {
       withCredentials: true,
     });
     setSocket(newSocket);
-    return () => newSocket.close();
+    return () => {
+      if (newSocket) {
+        newSocket.close();
+      }
+    };
   }, [id]);
 
   return (
